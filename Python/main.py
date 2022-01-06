@@ -105,8 +105,6 @@ def image_synthesis(img_path, classify_result):
     # 判断分割区域是否需要修改颜色
     for i in range(15):  # 垂直方向上分为15份
         for j in range(20):  # 水平方向上分为20份
-            if j < 2 or j > 17:
-                continue
             # 该区域左上角坐标
             left_top_x = j * 200
             left_top_y = i * 200
