@@ -7,5 +7,6 @@
 **3. 深度学习分类模型: model.py**  
 使用CNN进行训练，生成分类模型  
 **4. 主程序：main.py**  
-通过输入需要识别的原始图片路径，通过分割操作，对子图片逐个分类，最后根据分类结果生成合成后的图片
-![Image text](https://github.com/ReconTiner/GRAD_PROJECT/blob/main/Python/image_result.jpg)
+通过输入需要识别的原始图片路径，通过分割操作，对子图片逐个分类，最后根据分类结果生成合成后的图片  
+<img src="https://github.com/ReconTiner/GRAD_PROJECT/blob/main/Python/image_result.jpg" width="500px">
+
