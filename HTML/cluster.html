@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Cluster</title>
+    <!--ArcGIS API for JavaScript-->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <!--JS文件-->
+    <script src="../JS/cluster.js"></script>
+    <!--CSS文件-->
+    <link rel="stylesheet" href="../CSS/index.css">
+    <style>
+        #infoDiv {
+            background: white;
+            padding: 10px;
+        }
+
+        table td {
+            padding: 3px;
+        }
+
+        table.popup td.num {
+            text-align: right;
+        }
+
+        table.popup tr.head {
+            text-align: center;
+            font-weight: bold;
+            background-color: rgba(50, 50, 50, 0.08);
+        }
+
+        .table-container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav-header">
+        <nav class="header">
+            <a href="../HTML/index.html">home</a>
+            <a href="video.html">video</a>
+            <a href="tool.html">tool</a>
+            <a href="#">message</a>
+            <a href="../HTML/map.html">map</a>
+            <div class="animation"></div>
+        </nav>
+    </div>
+    <div id="main-box" style="left: 0;"></div>
+    <div id="infoDiv" class="esri-widget">
+        Filter by Class:
+        <select id="filter" class="esri-select">
+            <option value="">All</option>
+            <option value="Health">Health</option>
+            <option value="Normal">Normal</option>
+            <option value="Bad">Bad</option>
+        </select>
+        <div style="padding-top: 10px;">
+            <button id="toggle-cluster" class="esri-button">
+                Disable Clustering
+            </button>
+        </div>
+        <div id="legendDiv"></div>
+    </div>
+</body>
+
+</html>

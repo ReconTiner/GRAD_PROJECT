@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>热力图</title>
+    <!--ArcGIS API for JavaScript-->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <!--CSS文件-->
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/table.css">
+    <style>
+        #result {
+            position: absolute;
+            top: 60px;
+            width: 420px;
+            right: 0;
+            bottom: 0;
+        }
+
+        #total {
+            position: absolute;
+            top: 0px;
+            padding: 10px;
+            width: 400px;
+            right: 0;
+            height: 50px;
+        }
+
+        #record {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            left: 40%;
+            top: 55px;
+        }
+
+        #measurements {
+            position: absolute;
+            padding: 10px;
+            top: 85px;
+            width: 400px;
+            bottom: 0;
+            right: 0;
+        }
+
+        #temp {
+            padding: 4px 8px;
+            font-size: 16px;
+            bottom: 15px;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav-header">
+        <nav class="header">
+            <a href="../HTML/index.html">home</a>
+            <a href="video.html">video</a>
+            <a href="tool.html">tool</a>
+            <a href="#">message</a>
+            <a href="../HTML/map.html">map</a>
+            <div class="animation"></div>
+        </nav>
+    </div>
+    <div id="main-box" style="left: 0; right: 420px"></div>
+    <div id="result">
+        <div id="total">
+            <b>Total Geodesic area</b>:
+            <br>
+            <b>Geodesic area</b>:
+        </div>
+        <button id="record" onclick="record()">RECORD</button>
+        <!-- <div id="measurements"></div> -->
+        <div id="measurements">
+            <table style="width: 400px;">
+                <thead>
+                    <tr>
+                        <th style="font-size: 14px;">ID</th>
+                        <th style="font-size: 14px;">Geodesic Area</th>
+                        <th style="font-size: 14px;">Planar Area</th>
+                        <th style="font-size: 14px;">Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="record-result-tab"></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="temp" class="esri-widget"></div>
+    <!--JS文件-->
+    <script src="../JS/heatmap.js"></script>
+</body>
+
+</html>

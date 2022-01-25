@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>工具</title>
+    <!--导航栏CSS-->
+    <link rel="stylesheet" href="../CSS/index.css">
+    <!--工具列表CSS-->
+    <link rel="stylesheet" href="../CSS/tool.css">
+    <script>
+        function showHeatMap() {
+            window.location.href = "../HTML/heatmap.html"
+        }
+        function showCluster() {
+            window.location.href = "../HTML/cluster.html"
+        }
+    </script>
+</head>
+
+<body>
+    <!--导航栏-->
+    <div class="navigation">
+        <nav class="header">
+            <a href="../HTML/index.html">home</a>
+            <a href="video.html">video</a>
+            <a href="tool.html">tool</a>
+            <a href="#">message</a>
+            <a href="#">map</a>
+            <div class="animation"></div>
+        </nav>
+    </div>
+
+    <!--工具栏-->
+    <div id="tool-box">
+        <!--热力图-->
+        <div class="heatmap-tool">
+            <img class="tool-icon" src="../image/heatmap.png" alt="">
+            <h1 class="tool-name">可视化热力图</h1>
+            <hr style="position: relative; 
+                background-color:rgb(225, 228, 232);
+                top: 32%;">
+            <p class="tool-intro">
+                显示区域范围的热力图<br>
+            <p class="detail-info">热力图(Heat Map)：通过密度函数进行可视化用于表示地图中点的密度的热图</p>
+            </p>
+            <button class="start" onclick="showHeatMap()">开始使用</button>
+        </div>
+        <!--进制转换-->
+        <div class="base-tool">
+            <img class="tool-icon" src="../image/cluster.png" alt="">
+            <h1 class="tool-name">聚类分析</h1>
+            <hr style="position: relative; 
+                background-color:rgb(225, 228, 232);
+                top: 32%;">
+            <p class="tool-intro">
+                对范围区域进行聚类分析<br>
+            <p class="detail-info">进制：对于任何一种进制----X进制，就表示每一位置上的数运算时都是逢X进一位。</p>
+            </p>
+            <button class="start" onclick="showCluster()">开始使用</button>
+        </div>
+        <!--日历应用-->
+        <div class="calendar-tool">
+            <img class="tool-icon" src="img/imgCalendar.png" alt="">
+            <h1 class="tool-name">日历应用</h1>
+            <hr style="position: relative; 
+                background-color:rgb(225, 228, 232);
+                top: 32%;">
+            <p class="tool-intro">
+                查看最近的节假日<br>
+            <p class="detail-info">日历：一种日常使用的出版物，记载着日期等相关信息。</p>
+            </p>
+            <button class="start" onclick="showBase()">开始使用</button>
+        </div>
+        <!--ASC码对照表-->
+        <div class="heatmap-tool" style="top: 60px;">
+            <img class="tool-icon" src="img/imgASC.png" alt="">
+            <h1 class="tool-name">ASCII码对照表</h1>
+            <hr style="position: relative; 
+                background-color:rgb(225, 228, 232);
+                top: 32%;">
+            <p class="tool-intro">
+                查看ASCII码对应的十进制<br>
+            <p class="detail-info">ASCII码：美国信息交换标准代码，是基于拉丁字母的一套电脑编码系统，最通用的信息交换标准。</p>
+            </p>
+            <button class="start" onclick="showBase()">开始使用</button>
+        </div>
+        <!--简繁体转换-->
+        <div class="base-tool" style="top: 60px;">
+            <img class="tool-icon" src="img/imgChinese.png" alt="">
+            <h1 class="tool-name">简繁体转换</h1>
+            <hr style="position: relative; 
+                background-color:rgb(225, 228, 232);
+                top: 32%;">
+            <p class="tool-intro">
+                简体字和繁体字之间的转换<br>
+            <p class="detail-info">简繁转换可以认为是从简体中文向繁体中文的转换，又称为繁体字转换、简繁体转换、简繁翻译等。</p>
+            </p>
+            <button class="start" onclick="showBase()">开始使用</button>    
+        </div>
+        <!--字数统计-->
+        <div class="calendar-tool" style="top: 60px;">
+            <img class="tool-icon" src="img/imgCount.png" alt="">
+            <h1 class="tool-name">字符统计</h1>
+            <hr style="position: relative; 
+                background-color:rgb(225, 228, 232);
+                top: 32%;">
+            <p class="tool-intro">
+                统计文本中字符出现频率<br>
+            <p class="detail-info">统计字符串中每一个字符在该字符串中出现的次数，按次数从高至低排序输出。</p>
+            </p>
+            <button class="start" onclick="showBase()">开始使用</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
