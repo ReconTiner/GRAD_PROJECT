@@ -1,0 +1,40 @@
+/* Border styles */
+table thead,
+table th,
+table tr {
+    border-top-width   : 1px;
+    border-bottom-width: 1px;
+    border-top-style   : solid;
+    border-bottom-style: solid;
+    border-top-color   : rgb(166, 191, 224);
+    border-bottom-color: rgb(166, 191, 224);
+    background         : rgb(211, 223, 237);
+}
+
+table {
+    table-layout         : fixed;
+    width                : 480px;
+    border-collapse      : collapse;
+    border-bottom-width  : 1px;
+    border-bottom-style  : solid;
+    /*border-bottom-color: rgb(186,204,228);*/
+}
+
+/* Padding and font style */
+table td,
+table th {
+    text-align : center;
+    padding    : 10px 20px;
+    font-size  : 16px;
+    font-family: Verdana;
+    color      : rgb(90, 125, 176);
+}
+
+/* Alternating background colors */
+table tr:nth-child(even) {
+    background: rgb(211, 223, 237);
+}
+
+table tr:nth-child(odd) {
+    background: #FFF;
+}
