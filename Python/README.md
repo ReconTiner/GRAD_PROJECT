@@ -11,4 +11,3 @@
 **5. 主程序：main.py**  
 通过输入需要识别的原始图片路径，通过分割操作，对子图片逐个分类，最后根据分类结果生成合成后的图片  
 也可以生成CSV文件，用于存储图片的相关信息，包括名称、时间、经纬度，以及分类后各类子图片的数量
-<img src="https://github.com/ReconTiner/GRAD_PROJECT/blob/main/Python/image_result.jpg" width="500px">
