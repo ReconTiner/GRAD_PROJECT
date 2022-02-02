@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <title>主页</title>
+    <!--ArcGIS API for JavaScript-->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <!--jQuery-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <!--CSS文件-->
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/upload.css">
+</head>
+
+<body>
+    <div id="nav-header">
+        <nav class="header">
+            <a href="../HTML/index.html">home</a>
+            <a href="video.html">video</a>
+            <a href="tool.html">tool</a>
+            <a href="#">message</a>
+            <a href="../HTML/map.html">map</a>
+            <div class="animation"></div>
+        </nav>
+    </div>
+    <div id="main-box" style="left: 0;">
+        <div id="upload-box">
+            <input type="file" name='user' id="user-image" style="margin-left: 60px;">
+            <button class="upload" onclick="uploadImage()">确认上传</button>
+            <div id="show-box">
+                <img id="upload-image" src="../image/image-upload.png"
+                    style="width: 50px; height: 50px; margin-left: 170px; margin-top: 100px; border-radius: 3%;">
+                <p id="message" style="margin-left: 120px; margin-top: 20px;"><b>Upload Image Here</b></p>
+            </div>
+        </div>
+        <button class="start-analyst" onclick="startAnalyst()">开始识别</button>
+        <div id="return-box">
+            <div id="show-box" style="top: 50px">
+                <img id="result-image" src="" style="border-radius: 3%;">
+            </div>
+            <div id="detail-info">
+                <p id="name"></p>
+                <p id="time"></p>
+                <p id="lonlat"></p>
+                <p id="health"></p>
+                <p id="normal"></p>
+                <p id="badly"></p>
+                <p id="analyst"></p>
+                <p id="class"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const OL_Action_Root = "http://127.0.0.1:8080";
+        var imgName = "";
+        function uploadImage() {
+            console.log($("#user-image")[0].files)
+            // 获取file域里的图片信息
+            var formData = new FormData()
+            //创建formdata对象
+            formData.append("test", $("#user-image")[0].files[0])
+            // 将文件信息 append 进入formdata对象  key值为后台 single 设置的值  
+            $.ajax({
+                url: OL_Action_Root + '/upload_image',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.err == 0) {
+                        imgName = data.imageName;
+                        $('#upload-image').attr('src', OL_Action_Root + "/" + data.data)
+                        $('#upload-image').attr('style', "width: 400px; height: 300px; border-radius: 3%;")
+                        document.getElementById('message').innerHTML = "<b>UpLoad Image Success!</b>";
+                    }
+                }
+            });
+        }
+        function startAnalyst() {
+            $.ajax({
+                url: OL_Action_Root + '/start_analyst',
+                type: 'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == 0) {
+                        // 识别完成
+                        console.log("识别成功" + data)
+                        $('#result-image').attr('src', OL_Action_Root + "/" + imgName + "result.png")
+                        $('#result-image').attr('style', "width: 400px; height: 300px; border-radius: 3%;")
+                        $.ajax({
+                            url: OL_Action_Root + "/test.csv",
+                            success: function (result) {
+                                // 对csv文件的数据先以行分割
+                                userList = result.split("\n");
+                                // 对每一行以逗号作分割
+                                for (i = 1; i < userList.length-1; i++) {
+                                    userary = userList[i].split(",");
+                                    $('#name').append("影像名称:" + userary[0]);
+                                    $('#time').append("拍摄时间:" + userary[1]);
+                                    $('#lonlat').append("经纬度:" + userary[2] + ", " + userary[3]);
+                                    $('#health').append("Health:" + userary[4]);
+                                    $('#normal').append("Normal:" + userary[5]);
+                                    $('#badly').append("Badly:" + userary[6]);
+                                    $('#analyst').append("Analyst:" + userary[7]);
+                                    $('#class').append("Class:" + userary[8]);
+                                }
+                            }
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
